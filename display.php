@@ -3,6 +3,7 @@ echo "<html><body><table>\n\n";
 $name= $_GET['name'];
 $f = fopen($name, "r");
 while (($line = fgetcsv($f)) !== false) {
+.
         echo "<tr>";
         foreach ($line as $cell) {
                 echo "<td>" . htmlspecialchars($cell) . "</td>";
