@@ -1,5 +1,5 @@
 <?php
-$target_dir = "upload/";
+$target_dir = "./upload/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
@@ -27,9 +27,9 @@ if (isset($_POST["submit"])) {
 
         // if everything is ok, try to upload file
     } else {
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+        if (move_uploaded_file($target_file, $_FILES["fileToUpload"]["tmp_name"] )) {
             $msg = "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
-            header("location: display.php?name=$target_file");
+            header("display.php?name=$target_file");
         }
     }
 }
