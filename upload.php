@@ -29,7 +29,7 @@ if (isset($_POST["submit"])) {
     } else {
         if (move_uploaded_file($target_file, $_FILES["fileToUpload"]["tmp_name"] )) {
             $msg = "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
-            header("display.php?name=$target_file");
+            header("https://web.njit.edu/~hs574/project2/display.php?name=$target_file");
         }
     }
 }
