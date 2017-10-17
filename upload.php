@@ -10,6 +10,7 @@ if (isset($_POST["submit"])) {
     if ($target_file == "upload/") {
         $msg = "cannot be empty";
         $uploadOk = 0;
+        echo $msg;
     } // Check if file already exists
     else if (file_exists($target_file)) {
         $msg = "Sorry, file already exists.";
@@ -27,9 +28,10 @@ if (isset($_POST["submit"])) {
 
         // if everything is ok, try to upload file
     } else {
-        if (move_uploaded_file($target_file, $_FILES["fileToUpload"]["tmp_name"] )) {
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],$target_file  )) {
             $msg = "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
-            header("https://web.njit.edu/~hs574/project2/display.php?name=$target_file");
+            echo $msg;
+            //header("https://web.njit.edu/~hs574/project2/display.php?name=$target_file");
         }
     }
 }
